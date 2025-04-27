@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Planner</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        .navbar-container {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: black;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        .navbar .nav-link {
+            color: white !important;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+        }
+        .navbar .nav-link:hover {
+            color: #f8d210 !important;
+            transform: scale(1.1);
+        }
+        .content {
+            margin-top: 80px;
+        }
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background-image: url("indiantours.png");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        .banner-content {
+            position: relative;
+            z-index: 2;
+        }
+        .tour-card-link {
+            text-decoration: none;
+        }
+        .tour-card {
+            position: relative;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            overflow: hidden;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+        }
+        .tour-card:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+            cursor: pointer;
+        }
+        .tour-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .tour-content {
+            position: relative;
+            z-index: 2;
+        }
+        .tour-button {
+            background: #FFC107;
+            color: black;
+            border: none;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 5px;
+        }
+        .footer {
+            background: black;
+            color: white;
+            padding: 20px 0;
+            margin-top: 50px;
+            text-align: center;
+        }
+        .footer a {
+            color: #f8d210;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar-container">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand text-white" href="#">
+                    <i class="fas fa-map-marked-alt"></i> TRAVEL PLANNER
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Packages
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <!-- Indian Tours Dropdown -->
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item dropdown-toggle" href="#">Indian Tours</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="northindia.html">North Indian Tours</a></li>
+                                            <li><a class="dropdown-item" href="southindia.html">South Indian Tours</a></li>
+                                            <li><a class="dropdown-item" href="eastindia.html">East Indian Tours</a></li>
+                                            <li><a class="dropdown-item" href="educationalindia.html">Educational Tours</a></li>
+                                        </ul>
+                                    </li>
+                                    <!-- Europe Tours -->
+                                    <li><a class="dropdown-item" href="europe.html">Europe Tours</a></li>
+                                    <!-- International Tours -->
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item dropdown-toggle" href="#">International Tours</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="america.html">American Tours</a></li>
+                                            <li><a class="dropdown-item" href="africa.html">Africa Tours</a></li>
+                                            <li><a class="dropdown-item" href="asia.html">Asia Tours</a></li>
+                                            <li><a class="dropdown-item" href="island.html">Island Tours</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="confirmation.html">Mybookings</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <br>
+    <br><br>
+    <!-- Banner -->
+    <div class="banner" onclick="window.location.href='#packages';">
+        <div class="banner-overlay"></div>
+        <div class="banner-content">
+            <h1>INDIA TOUR PACKAGES</h1>
+        </div>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="container mt-5">
+        <div class="row g-3">
+            <div class="col-md-3 col-sm-6">
+                <a href="northindia.html" class="tour-card-link">
+                    <div class="tour-card" style="background-image: url('north.jpg');">
+                        <div class="tour-overlay"></div>
+                        <div class="tour-content">
+                            <h6><B>NORTH INDIAN TOURS</B></h6>
+                            <button class="tour-button">12 TOURS</button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <a href="southindia.html" class="tour-card-link">
+                    <div class="tour-card" style="background-image: url('south.jpg');">
+                        <div class="tour-overlay"></div>
+                        <div class="tour-content">
+                            <h6><B>SOUTH INDIAN TOURS</B></h6>
+                            <button class="tour-button">25 TOURS</button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <a href="eastindia.html" class="tour-card-link">
+                    <div class="tour-card" style="background-image: url('east.jpg');">
+                        <div class="tour-overlay"></div>
+                        <div class="tour-content">
+                            <h6><B>EAST INDIAN TOURS</B></h6>
+                            <button class="tour-button">8 TOURS</button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <a href="educationalindia.html" class="tour-card-link">
+                    <div class="tour-card" style="background-image: url('education.jpg');">
+                        <div class="tour-overlay"></div>
+                        <div class="tour-content">
+                            <h6><B>EDUCATIONAL TOURS</B></h6>
+                            <button class="tour-button">12 TOURS</button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+     <!-- Footer -->
+     <div class="footer">
+        <p>&copy; 2025 Travel Planner. All rights reserved. | <a href="#contact">Contact Us</a> | <a href="#about">About Us</a></p>
+    </div>
+    <!-- Bootstrap Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
