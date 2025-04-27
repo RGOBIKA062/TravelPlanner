@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Packages</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+        }
+        .tour-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .tour-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .tour-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+        .tour-card:hover img {
+            transform: scale(1.1);
+        }
+        .tour-info {
+            padding: 15px;
+            flex-grow: 1;
+        }
+        .tour-location {
+            font-size: 14px;
+            color: gray;
+        }
+        .tour-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .tour-duration {
+            font-size: 14px;
+            font-weight: bold;
+            color: #ff8800;
+        }
+        .tour-icon {
+            margin-right: 5px;
+        }
+        .book-now {
+            text-align: center;
+            padding: 10px;
+            background: #ff6600;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            display: block;
+            border-radius: 0 0 10px 10px;
+            transition: background 0.3s ease-in-out;
+        }
+        .book-now:hover {
+            background: #cc5500;
+            color: white;
+        }
+        .navbar-container {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: black;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        .navbar .nav-link {
+            color: white !important;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+        }
+        .navbar .nav-link:hover {
+            color: #f8d210 !important;
+            transform: scale(1.1);
+        }
+        .content {
+            margin-top: 80px;
+        }
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background-image: url("northindiatours.png");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        .banner-content {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar-container">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand text-white" href="#">
+                    <i class="fas fa-map-marked-alt"></i> TRAVEL PLANNER
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Packages
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <!-- Indian Tours Dropdown -->
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item dropdown-toggle" href="#">Indian Tours</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="northindia.html">North Indian Tours</a></li>
+                                            <li><a class="dropdown-item" href="southindia.html">South Indian Tours</a></li>
+                                            <li><a class="dropdown-item" href="eastindia.html">East Indian Tours</a></li>
+                                            <li><a class="dropdown-item" href="educationalindia.html">Educational Tours</a></li>
+                                        </ul>
+                                    </li>
+                                    <!-- Europe Tours -->
+                                    <li><a class="dropdown-item" href="europe.html">Europe Tours</a></li>
+                                    <!-- International Tours -->
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item dropdown-toggle" href="#">International Tours</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="america.html">American Tours</a></li>
+                                            <li><a class="dropdown-item" href="africa.html">Africa Tours</a></li>
+                                            <li><a class="dropdown-item" href="asia.html">Asia Tours</a></li>
+                                            <li><a class="dropdown-item" href="island.html">Island Tours</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="confirmation.html">Mybookings</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+<br><br>
+<br>
+<div class="banner" onclick="window.location.href='#packages';">
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+        <h1><b>EDUCATIONAL TOURS</b> </h1>
+    </div>
+</div>
+    <div class="container mt-5">
+        <div class="row g-3">
+            <!-- Tour Card 1 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="tour-card">
+                    <img src="e1.jpg" alt="Golden Triangle Tour">
+                    <div class="tour-info">
+                        <p class="tour-location">📍 Bangalore, Mysore</p>
+                        <h5 class="tour-title">Glorious South Indian Tour </h5>
+                        
+                    </div>
+                    <a href="booking.html?destination=Bangalore, Mysore&price=1450" class="book-now">Book Now</a>
+                </div>
+            </div>
+
+            <!-- Tour Card 2 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="tour-card">
+                    <img src="e2.jpg" alt="Ayodhya Kashi Tour">
+                    <div class="tour-info">
+                        <p class="tour-location">📍Mumbai, Goa</p>
+                        <h5 class="tour-title">The Indian Splendor </h5>
+                        
+                    </div>
+                    <a href="booking.html?destination=Mumbai, Goa&price=1650" class="book-now">Book Now</a>
+                </div>
+            </div>
+
+            <!-- Tour Card 3 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="tour-card">
+                    <img src="e3.jpg" alt="North India Tour">
+                    <div class="tour-info">
+                        <p class="tour-location">📍 West Bengal</p>
+                        <h5 class="tour-title">Delightful Educational Tour</h5>
+                        
+                    </div>
+                    <a href="booking.html?destination=West Bengal&price=1950" class="book-now">Book Now</a>
+                </div>
+            </div>
+
+            <!-- Tour Card 4 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="tour-card">
+                    <img src="e1.jpg" alt="Shimla Manali Tour">
+                    <div class="tour-info">
+                        <p class="tour-location">📍 Delhi, Shimla, Manali, Chandigarh, Agra</p>
+                        <h5 class="tour-title">Best Shimla Manali Tour</h5>
+                        
+                    </div>
+                    <a href="booking.html?destination=Paris, France&price=1850" class="book-now">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row g-3">
+            <!-- Tour Card 1 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="tour-card">
+                    <img src="e4.jpg" alt="Nainital Mussoorie Tour">
+                    <div class="tour-info">
+                        <p class="tour-location">📍 Agra, Uttar Pradesh</p>
+                        <h5 class="tour-title">Special Himalayan Tours</h5>
+                        
+                    </div>
+                    <a href="booking.html?destination=Agra, Uttar Pradesh&price=9150" class="book-now">Book Now</a>
+                </div>
+            </div>
+
+            <!-- Tour Card 2 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="tour-card">
+                    <img src="e6.jpg" alt="Corbett Nainital Tour">
+                    <div class="tour-info">
+                        <p class="tour-location">📍 Delhi, Jaipur</p>
+                        <h5 class="tour-title">Exotic Educational Tour</h5>
+                        
+                    </div>
+                    <a href="booking.html?destination=Delhi, Jaipur&price=1650" class="book-now">Book Now</a>
+                </div>
+            </div>
+
+            <!-- Tour Card 3 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="tour-card">
+                    <img src="e7.jpg" alt="Best of Uttaranchal">
+                    <div class="tour-info">
+                        <p class="tour-location">📍 Cochin,Munnar</p>
+                        <h5 class="tour-title">Grand Kerala Summer Vacation</h5>
+                        
+                    </div>
+                    <a href="booking.html?destination=Cochin,Munnar&price=1250" class="book-now">Book Now</a>
+                </div>
+            </div>
+
+            <!-- Tour Card 4 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="tour-card">
+                    <img src="e8.jpg" alt="Nainital Ranikhet Tour">
+                    <div class="tour-info">
+                        <p class="tour-location">📍Hyderabad</p>
+                        <h5 class="tour-title">Wonderful Hyderabad Tour</h5>
+                        
+                    </div>
+                    <a href="booking.html?destination=Hyderabad&price=1650" class="book-now">Book Now</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="tour-card">
+                    <img src="e9.jpg" alt="Nainital Ranikhet Tour">
+                    <div class="tour-info">
+                        <p class="tour-location">📍 Vizag</p>
+                        <h5 class="tour-title">Deccan Heritage Tour</h5>
+                    </div>
+                    <a href="booking.html?destination=Vizag&price=1350" class="book-now">Book Now</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="tour-card">
+                    <img src="e10.jpg" alt="Ayodhya Kashi Tour">
+                    <div class="tour-info">
+                        <p class="tour-location">📍 Manali</p>
+                        <h5 class="tour-title">Exotic Manali Tour</h5>
+                    </div>
+                    <a href="booking.html?destination=Manali&price=1550" class="book-now">Book Now</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="tour-card">
+                    <img src="e11.jpg" alt="Ayodhya Kashi Tour">
+                    <div class="tour-info">
+                        <p class="tour-location">📍 Nainital, India</p>
+                        <h5 class="tour-title">Short Break to Mussoorie</h5>
+                    </div>
+                    <a href="booking.html?destination=Nainital, India&price=1450" class="book-now">Book Now</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="tour-card">
+                    <img src="e12.jpg" alt="Ayodhya Kashi Tour">
+                    <div class="tour-info">
+                        <p class="tour-location">📍 Mysore, Coorg</p>
+                        <h5 class="tour-title">Wonderful mysore tours</h5>
+                    </div>
+                    <a href="booking.html?destination=Mysore, Coorg&price=1350" class="book-now">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

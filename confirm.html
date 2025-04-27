@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="navbar-container">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand text-white" href="#">
+                    <i class="fas fa-map-marked-alt"></i> TRAVEL PLANNER
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Packages
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <!-- Indian Tours Dropdown -->
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item dropdown-toggle" href="#">Indian Tours</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="northindia.html">North Indian Tours</a></li>
+                                            <li><a class="dropdown-item" href="southindia.html">South Indian Tours</a></li>
+                                            <li><a class="dropdown-item" href="eastindia.html">East Indian Tours</a></li>
+                                            <li><a class="dropdown-item" href="educationalindia.html">Educational Tours</a></li>
+                                        </ul>
+                                    </li>
+                                    <!-- Europe Tours -->
+                                    <li><a class="dropdown-item" href="europe.html">Europe Tours</a></li>
+                                    <!-- International Tours -->
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item dropdown-toggle" href="#">International Tours</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="america.html">American Tours</a></li>
+                                            <li><a class="dropdown-item" href="africa.html">Africa Tours</a></li>
+                                            <li><a class="dropdown-item" href="asia.html">Asia Tours</a></li>
+                                            <li><a class="dropdown-item" href="island.html">Island Tours</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="confirmation.html">Mybookings</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container mt-5">
+        <h2 class="text-center">Booking Confirmed!</h2>
+        <div class="card p-4">
+            <img id="destinationImage" class="card-img-top" alt="Destination Image">
+            <div class="card-body">
+                <h4 class="card-title" id="destinationName"></h4>
+                <p><strong>Amount Per Day:</strong> $<span id="amountPerDay"></span></p>
+                <p><strong>Number of Travelers:</strong> <span id="numTravelers"></span></p>
+                <p><strong>From:</strong> <span id="fromDate"></span></p>
+                <p><strong>To:</strong> <span id="toDate"></span></p>
+                <p><strong>Travel Type:</strong> <span id="travelType"></span></p>
+                <a href="index.html" class="btn btn-primary">Book Another Trip</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function getQueryParam(param) {
+            let urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function loadBookingDetails() {
+            let destination = getQueryParam("destination");
+            let amountPerDay = getQueryParam("amountPerDay");
+            let numTravelers = getQueryParam("numTravelers");
+            let fromDate = getQueryParam("fromDate");
+            let toDate = getQueryParam("toDate");
+            let travelType = getQueryParam("travelType");
+
+            document.getElementById("destinationName").textContent = destination;
+            document.getElementById("amountPerDay").textContent = amountPerDay;
+            document.getElementById("numTravelers").textContent = numTravelers;
+            document.getElementById("fromDate").textContent = fromDate;
+            document.getElementById("toDate").textContent = toDate;
+            document.getElementById("travelType").textContent = travelType;
+
+            // Fetching an image dynamically from Unsplash
+            fetch(`https://source.unsplash.com/600x400/?${destination}`)
+                .then(response => {
+                    document.getElementById("destinationImage").src = response.url;
+                })
+                .catch(() => {
+                    document.getElementById("destinationImage").src = "https://via.placeholder.com/600x400?text=No+Image+Available";
+                });
+        }
+
+        loadBookingDetails();
+    </script>
+</body>
+</html>
