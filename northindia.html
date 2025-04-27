@@ -119,6 +119,29 @@
             position: relative;
             z-index: 2;
         }
+        .dropdown-submenu {
+            position: relative;
+        }
+        .dropdown-submenu > .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+        }
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: block;
+        }
+        @media (max-width: 991px) {
+            .dropdown-submenu > .dropdown-menu {
+                position: static;
+                display: none;
+                margin-left: 20px;
+            }
+            .dropdown-submenu.show > .dropdown-menu {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
@@ -128,15 +151,11 @@
                 <a class="navbar-brand text-white" href="#">
                     <i class="fas fa-map-marked-alt"></i> TRAVEL PLANNER
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"  data-bs-toggle="dropdown" aria-expanded="false">
                                     Packages
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -164,7 +183,6 @@
                                     </li>
                                 </ul>
                             </li>
-                        </li>
                         <li class="nav-item"><a class="nav-link" href="confirmation.html">Mybookings</a></li>
                         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                         <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
@@ -173,14 +191,11 @@
                 </div>
             </div>
         </nav>
-    </div> 
+    </div>
 <br><br>
 <br>
 <div class="banner" onclick="window.location.href='#packages';">
     <div class="banner-overlay"></div>
-    <div class="banner-content">
-        <h1><b></b> </h1>
-    </div>
 </div>
     <div class="container mt-5">
         <div class="row g-3">
@@ -325,7 +340,5 @@
             </div>
         </div>
     </div>
-    
-
 </body>
 </html>
